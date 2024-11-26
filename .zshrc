@@ -5,38 +5,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
 # nvm 设置
-  export NVM_DIR="$HOME/.nvm"
+  export NVM_DIR="$HOME/.nvm"·
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-eval "$(lua $(brew --prefix z.lua)/share/z.lua/z.lua --init zsh)"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# 命令补全
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # 键位绑定
 bindkey '^I^I' autosuggest-accept 
 # 插件加载
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 plugins=(git z autojump vi-mode fast-syntax-highlighting)
 
 # Fix prompt at the bottom of the terminal window
 printf '\n%.0s' {1..100}
 
-# 包别名
-alias cat="bat"
-alias ls="lsd"
-alias gcb="git checkout -b"
-alias gci="git checkout ."
+#--------------------------------------------------#
+# 快捷方法
 # clash 代理，端口 7890:
 # 开启代理： > proxy
 # 关闭代理： > unproxy
@@ -62,16 +47,18 @@ function unproxy() {
   echo "\033[32m已关闭终端代理\033[0m"
 }
 
-#--------------------------------------------------#
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # 清空所有历史命令
 function clearall () {
   sudo rm -f ~/.zsh_history
   echo "History cleared"
 }
+# 包别名
+alias cat="bat"
+alias ls="lsd"
+alias gcb="git checkout -b"
+alias gci="git checkout ."
+#--------------------------------------------------#
+
 
 
 # Git
@@ -96,3 +83,7 @@ if [[ -d .git ]]; then
     fi
   fi
 fi
+
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
