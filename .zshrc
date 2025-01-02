@@ -5,14 +5,14 @@ export NVM_DIR="$HOME/.nvm"
 #--------------------------------------------------#
   # 插件
   #1. brew install zsh-autosuggestions
-  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
   bindkey '^I^I' autosuggest-accept  # 键位绑定
   
   #2. brew install zsh-fast-syntax-highlighting
-  source /usr/local/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 
+  source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 
 
   #3.主题 brew install powerlevel10k 
-  source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+  source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]
   # confirmations, etc.) must go above this block; everything else may go below.
@@ -63,6 +63,8 @@ alias cat="bat"
 alias ls="lsd"
 alias gcb="git checkout -b"
 alias gci="git checkout ."
+alias refreshzsh="source ~/.zshrc"
+alias editzsh="code ~/.zshrc"
 #--------------------------------------------------#
 
 # Git
@@ -87,5 +89,3 @@ if [[ -d .git ]]; then
     fi
   fi
 fi
-
-
